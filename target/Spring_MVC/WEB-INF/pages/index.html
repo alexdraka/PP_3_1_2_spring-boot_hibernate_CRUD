@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UserList page</title>
+</head>
+<body>
+<h1>UserList</h1>
+<br/><br/>
+<div>
+  <table border="2">
+    <tr>
+      <th>id</th>
+      <th>lastName</th>
+    </tr>
+    <tr th:each ="peo : ${people}">
+      <td th:utext="${peo.id}">...</td>
+      <td>
+        <a th:href="@{/show_people(id=${peo.id})}" th:text="${peo.lastName}" target="_blank" />
+      </td>
+    </tr>
+  </table>
+</div>
+<br/>
+<body>
+<p> * To see user details click on user's lastname</p> <br />
+<strong> <a href="/">For more information return to main pagina</a> </strong> <br />
+<em>
+<a href="https://www.agernic.com/html-tutorial.html">Visit some HTML tutorial</a> </em> <br />
+
+</body>
+</body>
+</html>

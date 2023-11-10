@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show user page</title>
+</head>
+<body>
+<h1>User's data</h1>
+<br/><br/>
+<div>
+    <table border="2">
+        <tr>
+            <th>id</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>age</th>
+            <th>user's edit method</th>
+            <th>user's delete method</th>
+        </tr>
+        <tr>
+            <td th:utext="${user.id}">...</td>
+            <td th:utext="${user.firstName}">...</td>
+            <td th:utext="${user.lastName}">...</td>
+            <td th:utext="${user.age}">...</td>
+            <td>
+                <a th:href="@{/new_update(id=${user.id},firstName=${user.firstName},lastName=${user.lastName},
+                age=${user.age})}">...click</a>
+            </td>
+            <td>
+                <a th:href="@{/remove_user(id=${user.id})}">...click</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<br/>
+<body>
+<p> ...</p> <br />
+<strong> <a href="/">For more information return to main page</a> </strong> <br />
+<em>
+    <a href="https://www.agernic.com/html-tutorial.html">Visit some HTML tutorial</a> </em> <br />
+
+</body>
+</html>
