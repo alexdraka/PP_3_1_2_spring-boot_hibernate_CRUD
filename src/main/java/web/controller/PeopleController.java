@@ -48,9 +48,8 @@ public class PeopleController {
     }
     //
     @PostMapping("/edit_people")
-    public String update(@RequestParam("id") Integer id, @RequestParam("firstName") String firstName,
-                         @RequestParam("lastName") String lastName, @RequestParam("age") int age, Model model) {
-        userDAO.update(id, firstName, lastName, age);
+    public String update(@RequestParam("id") Integer id, Model model, @ModelAttribute("user") User user) {
+        userDAO.update(id, user);
         return "redirect:/people";
     }
     @GetMapping("/remove_user")

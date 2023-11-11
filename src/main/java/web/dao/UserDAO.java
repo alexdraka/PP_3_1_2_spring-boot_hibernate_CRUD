@@ -8,7 +8,7 @@ public interface UserDAO {
     List<User> index();
     User show(Integer id);
     void save(User user);
-    void update(Integer id, String updatedFirstName, String updatedLastName, int updatedAge);
+    void update(Integer id, User user);
     void delete(Integer id);
 
 }
