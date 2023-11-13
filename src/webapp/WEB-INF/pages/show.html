@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <title>Show user page</title>
 </head>
+<style>
+    table {
+        border: 4px solid green;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td {
+        border: 4px solid green;
+    }
+    th {
+        border: 4px solid green;
+    }
+</style>
 <body>
 <h1>User's data</h1>
 <br/><br/>
 <div>
-    <table border="2">
+    <table>
+        <colgroup>
+
+            <col span="4" style="background:none">
+
+            <col span="1" style="background-color:yellow"><!-- Задаем цвет фона для следующего столбца таблицы-->
+
+            <col span="1" style="background:pink">
         <tr>
             <th>id</th>
             <th>firstName</th>
@@ -27,9 +47,13 @@
                 age=${user.age})}">click</a>
             </td>
             <td align="center">
+
+
+
                 <a th:href="@{/remove_user(id=${user.id})}">click</a>
             </td>
         </tr>
+        </colgroup>
     </table>
 </div>
 </body>
