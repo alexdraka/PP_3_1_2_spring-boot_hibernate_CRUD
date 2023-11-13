@@ -9,8 +9,8 @@
 <br/><br/>
 
 <form th:method="POST" th:action="@{/delete_people}" th:object="${user}">
-  <label for="id">Enter id (WARNING!!! All data will be deleted after you submit. Data will be loosed): </label>
-  <input id="id" placeholder="Enter id" required type="number" min="1" th:field="*{id}"/>
+  <label for="id">Confirm id (WARNING!!! All data will be deleted after you submit. Data will be loosed): </label>
+  <input readonly id="id" placeholder="Enter id" required type="number" min="1" th:field="*{id}"/>
   <!--    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{firstName}">Name Error</div>-->
 <!--  <label for="firstName">Enter firstname: </label>-->
 <!--  <input id="firstName" placeholder="Enter First Name" required type="text" th:field="*{firstName}"/>-->

@@ -10,7 +10,7 @@
 
 <form th:method="POST" th:action="@{/edit_people}" th:object="${user}">
   <label for="id">Enter id (required): </label>
-  <input id="id" placeholder="Enter id" required type="number" min="1" th:field="*{id}"/>
+  <input readonly id="id" placeholder="Enter id" required type="number" min="1" th:field="*{id}"/>
 <!--  <input type="text" th:field="*{id}" id="id"/>-->
   <!--    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{firstName}">Name Error</div>-->
   <label for="firstName">Enter firstname: </label>
