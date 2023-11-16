@@ -7,26 +7,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import web.dao.UserDAO;
 import web.model.User;
+import web.service.UserService;
 
 @Controller
 public class PeopleController {
-    private UserDAO userDAO;
+    private final UserService userService;
 
     @Autowired
-    public PeopleController(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public PeopleController(UserService userService) {
+        this.userService = userService;
     }
+
 
     @GetMapping("/people")
     public String index(Model model) {
-        model.addAttribute("people", userDAO.index());
+        model.addAttribute("people", userService.index());
         return "index";
     }
     @GetMapping("show_people")
     public String show(@RequestParam(defaultValue = "5") Integer id, Model model) {
-        model.addAttribute("user", userDAO.show(id));
+        model.addAttribute("user", userService.show(id));
         return "show";
     }
     @GetMapping("/new_user")
@@ -35,7 +36,7 @@ public class PeopleController {
     }
     @PostMapping("/create_people")
     public String create(@ModelAttribute("user") User user) {
-        userDAO.save(user);
+        userService.save(user);
         return "redirect:/people";
     }
 
@@ -43,13 +44,13 @@ public class PeopleController {
     public String editUser(@RequestParam("id") Integer id, @RequestParam("firstName") String firstName,
                            @RequestParam("lastName") String lastName, @RequestParam("age") int age,
                            @ModelAttribute("user") User user, Model model) {
-        model.addAttribute("person", userDAO.show(id));
+        model.addAttribute("person", userService.show(id));
         return "edit";
     }
     //
     @PostMapping("/edit_people")
     public String update(@RequestParam("id") Integer id, Model model, @ModelAttribute("user") User user) {
-        userDAO.update(id, user);
+        userService.update(id, user);
         return "redirect:/people";
     }
     @GetMapping("/remove_user")
@@ -59,7 +60,7 @@ public class PeopleController {
     //
     @PostMapping("/delete_people")
     public String delete(Integer id, @ModelAttribute("user") User user) {
-        userDAO.delete(id);
+        userService.delete(id);
         return "redirect:/people";
     }
 }
