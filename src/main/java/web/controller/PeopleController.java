@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
-import web.service.UserService;
+import web.service.UserServiceImpl;
 
 @Controller
 public class PeopleController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public PeopleController(UserService userService) {
+    public PeopleController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
